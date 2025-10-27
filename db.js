@@ -1,12 +1,14 @@
-import mongoose, { Mongoose } from "mongoose";
-const MONGO_URI = "mongodb://localhost:27017/terceroa"
-export const conectDB = async () => {
-  try{
+import  mongoose  from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+
+const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/terceroa"
+
+export const connectDB = async () => {
+  try {
     await mongoose.connect(MONGO_URI);
-    console.log("MongoDB Connected Succesfully!!!!");
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    console.error("Mongo DB connection error:");
   }
-  catch (error){
-    console.error("Mongo DB Connection Filed")
-     console.error(error.message);
-  }
-}
+};
