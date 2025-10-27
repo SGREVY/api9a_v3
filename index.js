@@ -1,9 +1,9 @@
 import express from "express";
 const app = express();
-import { conectDB } from "./db.js";
+import { connectDB } from "./db.js";
 import { Card } from "./modelos/Card.js";
 app.use(express.json()) 
-conectDB();
+connectDB();
 
 
 app.post("/cards", async (req, res) =>{ 
