@@ -93,7 +93,7 @@ app.put("/updateAllcards/:id", async (req, res) => {
   }
 });
 
-//DELETE
+
 app.delete("/delateCards/:id", async (req, res) => {
   try {
     const { id } = req.params; 
