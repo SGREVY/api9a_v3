@@ -159,7 +159,7 @@ app.get("/review", (req, res) => {
   res.status(200).send(message);
 });
 
-pp.patch("/updateLike/:id", async (req, res) => {
+app.patch("/updateLike/:id", async (req, res) => {
   try {
     const card = await Card.findById(req.params.id);
 
