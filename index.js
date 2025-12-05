@@ -158,3 +158,23 @@ app.get("/review", (req, res) => {
 
   res.status(200).send(message);
 });
+
+pp.patch("/updateLike/:id", async (req, res) => {
+  try {
+    const card = await Card.findById(req.params.id);
+
+    if (!card) {
+      return res.status(404).json({ message: "Card not found" });
+    }
+
+    // Cambiar el like
+    card.like = !card.like;
+
+    // Guardar en la BD
+    await card.save();
+
+    res.json(card);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
